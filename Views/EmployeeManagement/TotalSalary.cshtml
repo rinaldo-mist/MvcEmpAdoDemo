@@ -1,0 +1,38 @@
+@model MvcEmpAdoDemo.Models.Employee
+@{
+    ViewData["Title"] = "Total Salary";
+}
+<h2>Total Salary</h2>  
+<h4>Employee</h4>  
+<hr />
+<div class="row">    
+    <div class="col-md-4">    
+        <form asp-action="TotalSalary">
+            <div class="form-group">    
+                <label asp-for="Jabatan" class="control-label"></label>
+                <select asp-for="Jabatan" class="form-control">
+                    <option value="">-- Jabatan --</option>    
+                    <option value="CEO">CEO</option>      
+                    <option value="Karyawan">Karyawan</option>    
+                    <option value="Leader">Leader</option>  
+                </select>    
+                <span asp-validation-for="Jabatan" class="text-danger"></span>
+            </div>
+            <div class="form-group">    
+                <input type="submit" value="TotalSalary" class="btn btn-default" />    
+            </div>
+        </form>    
+    </div>
+    <h3>@if(Model.Salary == 0)
+            {
+                <p>0</p>
+            }
+            else
+            {
+                <p>@Model.Salary</p>
+            }
+    </h3>
+</div>    
+<div>    
+    <a asp-action="Index">Back to List</a>    
+</div>

@@ -1,0 +1,42 @@
+@model List<MvcEmpAdoDemo.Models.Employee>
+@{
+    ViewData["Title"] = "View All";
+}
+<h2>View All</h2>
+<p>    
+    <a asp-action="Add">Create New</a>    
+</p>   
+<table class="table">
+    <tbody>    
+        @foreach (var item in Model)    
+{    
+            <tr>    
+                <td>    
+                    @Html.DisplayFor(modelItem => item.Nama)    
+                </td>    
+                <td>    
+                    @Html.DisplayFor(modelItem => item.Salary)    
+                </td>    
+                <td>    
+                    @Html.DisplayFor(modelItem => item.Jabatan)    
+                </td> 
+                <td>    
+                    @if (item.isDeleted == 0)
+                    {
+                        <p>AKTIF</p>
+                    }
+                    else
+                    {
+                        <p>NON-AKTIF</p>
+                    }  
+                </td> 
+                <td>
+                    <a asp-action="Update" asp-route-id="@item.EmpId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.EmpId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.EmpId">Delete</a>    
+                </td>    
+            </tr>    
+        } 
+        <a asp-action="TotalSalary">Total Salary</a>    
+    </tbody>    
+</table>

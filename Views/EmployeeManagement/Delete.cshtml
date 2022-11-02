@@ -1,0 +1,46 @@
+@model MvcEmpAdoDemo.Models.Employee
+
+@{    
+    ViewData["Title"] = "Delete";    
+}
+
+<h2>Delete</h2>    
+<h3>Are you sure you want to delete this?</h3>    
+<div>    
+    <h4>Employee</h4>    
+    <hr />    
+    <dl class="dl-horizontal"> 
+        <dt>    
+            @Html.DisplayFor(model => model.EmpId)    
+        </dt>     
+        <dt>    
+            @Html.DisplayFor(model => model.Nama)    
+        </dt>    
+        <dd>    
+            @Html.DisplayFor(model => model.Salary)    
+        </dd>    
+        <dt>    
+            @Html.DisplayFor(model => model.Jabatan)    
+        </dt>
+        <dt>    
+            @if (Model.isDeleted == 0)
+            {
+                <p>AKTIF</p>
+            }
+            else
+            {
+                <p>NON-AKTIF</p>
+            }    
+        </dt>  
+    </dl>    
+    
+    <form asp-action="Delete">    
+        <input type="hidden" asp-for="EmpId" />
+        <input type="hidden" asp-for="Nama" />
+        <input type="hidden" asp-for="Salary" />
+        <input type="hidden" asp-for="Jabatan" />
+        <input type="hidden" asp-for="isDeleted" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |    
+        <a asp-action="Index">Back to List</a>    
+    </form>    
+</div>    

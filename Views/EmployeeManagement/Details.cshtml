@@ -1,0 +1,26 @@
+@model MvcEmpAdoDemo.Models.Employee
+@{
+    ViewData["Title"] = "View Employee Details";
+}
+<h2>Employee</h2>    
+<table class="table">
+    <tbody>     
+        <tr>    
+            <td>    
+                @Html.DisplayFor(item => item.Nama)    
+            </td>    
+            <td>    
+                @Html.DisplayFor(item => item.Salary)    
+            </td>    
+            <td>    
+                @Html.DisplayFor(item => item.Jabatan)    
+            </td> 
+            <td>
+                <a asp-action="Add" asp-route-id="@Model.EmpId">Add</a> |
+                <a asp-action="Update" asp-route-id="@Model.EmpId">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@Model.EmpId">Delete</a> |
+                <a asp-action="Index">Back to List</a>   
+            </td>    
+        </tr>      
+    </tbody>    
+</table>
